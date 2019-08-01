@@ -16,11 +16,12 @@
             <hr>
             <div class="form-group">
               <label for="price">Yuan Price: </label>
-              <input type="number" id="price" class="form-control">
+              <input type="number" id="price" class="form-control" value="{{ price }}">
               <label for="weight">Weight: </label>
-              <input type="number" id="weight" class="form-control">
+              <input type="number" id="weight" class="form-control" value="{{ weight }}">
               <label for="quantities">Quantities: </label>
-              <input type="number" id="quantities" class="form-control">
+              <input type="number" id="quantities" class="form-control" value="{{ quantities }}">
+              <h6>Volumetric weight: <strong>{{ volumetricWeight }}</strong></h6>
             </div>
           </div>
           <div class="col-6 mb-4">
@@ -28,11 +29,11 @@
             <hr>
             <div class="form-group">
               <label for="width">Width: </label>
-              <input type="number" id="width" class="form-control">
+              <input type="number" id="width" class="form-control" value="{{ width}}">
               <label for="height">Height: </label>
-              <input type="number" id="height" class="form-control">
+              <input type="number" id="height" class="form-control" value="{{ height }}">
               <label for="large">Large: </label>
-              <input type="number" id="large" class="form-control">
+              <input type="number" id="large" class="form-control" value="{{ large }}">
             </div>
           </div>
         </div>
@@ -42,7 +43,7 @@
             <hr>
             <div class="form-group">
               <label for="ctu_price">Price Yuan/Kg</label>
-              <input type="number" id="ctu_price" class="form-control">
+              <input type="number" id="ctu_price" class="form-control" value="{{ ctuPrice }}">
             </div>
           </div>
           <div class="col-6 mb-4">
@@ -50,7 +51,7 @@
             <hr>
             <div class="form-group">
               <label for="utv_price">Price USD/Kg</label>
-              <input type="number" id="utv_price" class="form-control">
+              <input type="number" id="utv_price" class="form-control" value="{{ utvPrice }}">
             </div>
           </div>
         </div>
@@ -58,37 +59,82 @@
           <div class="col-6 mb-4">
             <h5>Exchange Rates</h5>
             <hr>
-            <p>1 Yuan = 0.071 USD </p>
-            <p>1 USD = 7.1 Yuan</p>
+            <label for="usd">1 YUAN = {{ yuanUsd }} $ USD</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">1 YUAN = </span>
+              </div>
+              <input type="number" class="form-control" id="usd" aria-describedby="usd" value="{{ yuanUsd }}">
+              <div class="input-group-append">
+                <span class="input-group-text">$ USD</span>
+              </div>
+            </div>
+            <label for="yuan">1 USD = {{ usdYuan }} Yuan</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon2">1 USD = </span>
+              </div>
+              <input type="text" class="form-control" id="yuan" aria-describedby="yuan" value="{{ usdYuan }}">
+              <div class="input-group-append">
+                <span class="input-group-text">Y YUAN</span>
+              </div>
+            </div>
           </div>
           <div class="col-6 mb-4">
-            <h5>Totals</h5>
+            <h5>Shipping & amount</h5>
             <hr>
-            <table>
+            <table class="table">
               <tr>
-                <td>Destination</td>
-                <td>Price </td>
+                <td class="font-weight-bold">Destination</td>
+                <td class="font-weight-bold">Price </td>
               </tr>
               <tr>
                 <td>Purchase</td>
-                <td>Yuan 852.94
+                <td>Yuan {{ purchaseYuan }}
                   <br>
-                USD 172.25</td>
+                USD {{ purchaseUsd }}</td>
               </tr>
               <tr>
                 <td>United States</td>
-                <td>Yuan 852.94
+                <td>Yuan {{ usaYuan }}
                   <br>
-                  USD 172.25</td>
+                  USD {{ usaUsd }}</td>
               </tr>
               <tr>
                 <td>Venezuela</td>
-                <td>172.25</td>
+                <td>Yuan {{ vzlaYuan }}
+                  <br>
+                  USD {{ vzlaUsd }}</td>
               </tr>
             </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>Grand Totals</h3>
             <hr>
-            <h3>Grand Total</h3>
-            <h3>USD $ 568.58</h3>
+            <table class="table">
+              <thead>
+              <tr>
+                <td class="font-weight-bold">Description</td>
+                <td class="font-weight-bold">Total</td>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>USD $</td>
+                <td>{{ usdGrandTotal }}</td>
+              </tr>
+              <tr>
+                <td>Yuan Y</td>
+                <td>{{ yuanGrandTotal }}</td>
+              </tr>
+              <tr>
+                <td>Bolivares Bs</td>
+                <td>{{ bsGrandTotal }}</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
