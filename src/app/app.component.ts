@@ -76,4 +76,13 @@ export class AppComponent {
     this.shipping.usdGrandTotal = this.shipping.purchaseUsd + this.shipping.usaUsd + this.shipping.vzlaUsd;
   }
 
+  // Set amount to yuan
+  setChangeYuan() {
+    this.initialPoint();
+  }
+
+  // Set amount to USD
+  setChangeUsd() {
+    this.initialPoint();
+  }
 }

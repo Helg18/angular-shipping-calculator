@@ -65,17 +65,18 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">1 YUAN = </span>
               </div>
-              <input type="number" class="form-control" id="usd" aria-describedby="usd" [(ngModel)]="shipping.yuanUsd" >
+              <input type="number" class="form-control" id="usd" aria-describedby="usd" min="0" [(ngModel)]="shipping.yuanUsd" (change)="setChangeYuan()">
               <div class="input-group-append">
                 <span class="input-group-text">$ USD</span>
               </div>
             </div>
+            <br>
             <label for="yuan">1 USD = {{ shipping.usdYuan }} Yuan</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon2">1 USD = </span>
               </div>
-              <input type="text" class="form-control" id="yuan" aria-describedby="yuan" [(ngModel)]="shipping.usdYuan">
+              <input type="number" class="form-control" id="yuan" aria-describedby="yuan" min="0" [(ngModel)]="shipping.usdYuan" (change)="setChangeUsd()">
               <div class="input-group-append">
                 <span class="input-group-text">Y YUAN</span>
               </div>
