@@ -19,6 +19,7 @@ export class AppComponent {
     this.setPurchase();
     this.setTotalChinaToUsa();
     this.setTotalUsaToVzla();
+    this.setGrandTotals();
   }
 
   // Calulate total Weight
@@ -69,6 +70,12 @@ export class AppComponent {
     const grandWeight = this.calculateBigestWeight();
     this.shipping.vzlaUsd = this.shipping.utvPrice * grandWeight;
     this.shipping.vzlaYuan = this.convertUsdToYuan(this.shipping.vzlaUsd);
+  }
+
+  // Set Grand totals
+  setGrandTotals() {
+    this.shipping.yuanGrandTotal = this.shipping.purchaseYuan + this.shipping.usaYuan + this.shipping.vzlaYuan;
+    this.shipping.usdGrandTotal = this.shipping.purchaseUsd + this.shipping.usaUsd + this.shipping.vzlaUsd;
   }
 
 }
