@@ -18,6 +18,7 @@ export class AppComponent {
     this.setVolumetricWeight();
     this.setPurchase();
     this.setTotalChinaToUsa();
+    this.setTotalUsaToVzla();
   }
 
   // Calulate total Weight
@@ -36,24 +37,38 @@ export class AppComponent {
     return value / this.usdYuan;
   }
 
+  // Convert USD to yuan
+  convertUsdToYuan(value) {
+    return  value / this.yuanUsd;
+  }
+
   // Calculate total amount YUAN
   setPurchase() {
     this.shipping.purchaseYuan = this.shipping.price * this.shipping.quantities;
     this.shipping.purchaseUsd = this.convertYuanToUsd(this.shipping.purchaseYuan);
   }
 
+  // Calculate bigest Weight
+  calculateBigestWeight() {
+    if (this.shipping.totalWeight > this.shipping.totalVolumetricWeight) {
+      return  this.shipping.totalWeight;
+    } else {
+      return  this.shipping.totalVolumetricWeight;
+    }
+  }
+
   // Calculate China to USA
   setTotalChinaToUsa() {
-    let grandWeight;
-    if (this.shipping.totalWeight > this.shipping.totalVolumetricWeight) {
-      grandWeight = this.shipping.totalWeight;
-    } else {
-      grandWeight = this.shipping.totalVolumetricWeight;
-    }
+    const grandWeight = this.calculateBigestWeight();
     this.shipping.usaYuan = grandWeight * this.shipping.ctuPrice;
-
     this.shipping.usaUsd = this.convertYuanToUsd(this.shipping.usaYuan);
-    console.log(this.shipping);
+  }
+
+  // Calculate USA to Vzla
+  setTotalUsaToVzla() {
+    const grandWeight = this.calculateBigestWeight();
+    this.shipping.vzlaUsd = this.shipping.utvPrice * grandWeight;
+    this.shipping.vzlaYuan = this.convertUsdToYuan(this.shipping.vzlaUsd);
   }
 
 }
