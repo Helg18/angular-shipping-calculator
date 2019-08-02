@@ -27,8 +27,8 @@ export class Shipping {
   vzlaUsd = 0;
   usdGrandTotal = 0;
   yuanGrandTotal = 0;
-  bsGrandTotal = 0;
   totalWeight = 0;
   totalVolumetricWeight = 0;
-
+  unitCostUsd = 0;
+  unitCostYuan = 0;
 }

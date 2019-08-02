@@ -18,6 +18,7 @@ export class AppComponent {
     this.setTotalChinaToUsa();
     this.setTotalUsaToVzla();
     this.setGrandTotals();
+    this.setUnitCost();
   }
 
   // Calulate total Weight
@@ -27,7 +28,7 @@ export class AppComponent {
 
   // Calculate Volumetric Weight
   setVolumetricWeight() {
-    this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 400;
+    this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 500;
     this.shipping.totalVolumetricWeight = this.shipping.volumetricWeight * this.shipping.quantities;
   }
 
@@ -84,5 +85,11 @@ export class AppComponent {
   // Set amount to USD
   setChangeUsd() {
     this.initialPoint();
+  }
+
+  // Calculate unit final cost in vzla
+  setUnitCost() {
+    this.shipping.unitCostUsd = this.shipping.usdGrandTotal / this.shipping.quantities;
+    this.shipping.unitCostYuan = this.convertUsdToYuan(this.shipping.unitCostUsd);
   }
 }
