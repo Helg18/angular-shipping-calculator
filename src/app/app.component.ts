@@ -14,11 +14,17 @@ export class AppComponent {
   shipping: Shipping = new Shipping();
 
   initialPoint() {
-    this.setVolumetricHeight();
+    this.setTotalHeight();
+    this.setVolumetricWeight();
   }
 
-  // calcular peso volumetrico
-  setVolumetricHeight() {
+  // Calulate total Weight
+  setTotalHeight() {
+    this.shipping.totalWeight = this.shipping.weight * this.shipping.quantities;
+  }
+
+  // Calculate Volumetric Weight
+  setVolumetricWeight() {
     this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 400;
   }
 
