@@ -27,6 +27,7 @@ export class AppComponent {
   // Calculate Volumetric Weight
   setVolumetricWeight() {
     this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 400;
+    this.shipping.totalVolumetricWeight = this.shipping.volumetricWeight * this.shipping.quantities;
   }
 
   // Convert yuan to usd
@@ -39,5 +40,4 @@ export class AppComponent {
     this.shipping.purchaseYuan = this.shipping.price * this.shipping.quantities;
     this.shipping.purchaseUsd = this.convertYuanToUsd(this.shipping.purchaseYuan);
   }
-
 }
