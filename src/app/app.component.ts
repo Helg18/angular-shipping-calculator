@@ -92,4 +92,9 @@ export class AppComponent {
     this.shipping.unitCostUsd = this.shipping.usdGrandTotal / this.shipping.quantities;
     this.shipping.unitCostYuan = this.convertUsdToYuan(this.shipping.unitCostUsd);
   }
+
+  // Clear all fields
+  clearAllFields() {
+    this.shipping = new Shipping();
+  }
 }
