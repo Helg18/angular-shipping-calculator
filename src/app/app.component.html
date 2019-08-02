@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+ <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand text-capitalize text-light" href="#">Shipping Calculator</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
         <h2>Shipping calculator</h2>
         <hr>
         <div class="row">
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>Package Information</h5>
             <hr>
             <div class="form-group">
@@ -24,7 +24,7 @@
               <h6>Total weight: <strong>{{ shipping.totalWeight }} Kg.</strong></h6>
             </div>
           </div>
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>Shipping Information</h5>
             <hr>
             <div class="form-group">
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>China to USA</h5>
             <hr>
             <div class="form-group">
@@ -47,7 +47,7 @@
               <input type="number" id="ctu_price" class="form-control" [(ngModel)]="shipping.ctuPrice" (change)="initialPoint()">
             </div>
           </div>
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>USA to Venezuela</h5>
             <hr>
             <div class="form-group">
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>Exchange Rates</h5>
             <hr>
             <label for="usd">1 YUAN = {{ shipping.yuanUsd }} $ USD</label>
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <div class="col-6 mb-4">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
             <h5>Shipping & amount</h5>
             <hr>
             <table class="table">
@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
             <h3>Grand Totals</h3>
             <hr>
             <table class="table">
