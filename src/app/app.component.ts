@@ -17,6 +17,7 @@ export class AppComponent {
     this.setTotalHeight();
     this.setVolumetricWeight();
     this.setPurchase();
+    this.setTotalChinaToUsa();
   }
 
   // Calulate total Weight
@@ -40,4 +41,19 @@ export class AppComponent {
     this.shipping.purchaseYuan = this.shipping.price * this.shipping.quantities;
     this.shipping.purchaseUsd = this.convertYuanToUsd(this.shipping.purchaseYuan);
   }
+
+  // Calculate China to USA
+  setTotalChinaToUsa() {
+    let grandWeight;
+    if (this.shipping.totalWeight > this.shipping.totalVolumetricWeight) {
+      grandWeight = this.shipping.totalWeight;
+    } else {
+      grandWeight = this.shipping.totalVolumetricWeight;
+    }
+    this.shipping.usaYuan = grandWeight * this.shipping.ctuPrice;
+
+    this.shipping.usaUsd = this.convertYuanToUsd(this.shipping.usaYuan);
+    console.log(this.shipping);
+  }
+
 }

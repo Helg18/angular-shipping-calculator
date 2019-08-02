@@ -44,7 +44,7 @@
             <hr>
             <div class="form-group">
               <label for="ctu_price">Price Yuan/Kg</label>
-              <input type="number" id="ctu_price" class="form-control" [(ngModel)]="shipping.ctuPrice">
+              <input type="number" id="ctu_price" class="form-control" [(ngModel)]="shipping.ctuPrice" (change)="initialPoint()">
             </div>
           </div>
           <div class="col-6 mb-4">
@@ -52,7 +52,7 @@
             <hr>
             <div class="form-group">
               <label for="utv_price">Price USD/Kg</label>
-              <input type="number" id="utv_price" class="form-control" [(ngModel)]="shipping.utvPrice">
+              <input type="number" id="utv_price" class="form-control" [(ngModel)]="shipping.utvPrice" (change)="initialPoint()">
             </div>
           </div>
         </div>
