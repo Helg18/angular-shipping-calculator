@@ -1,4 +1,6 @@
 export class Shipping {
+  usdYuan = 6.9;
+  yuanUsd = 0.14;
   // Package Information
   price = 0;
   weight = 0;

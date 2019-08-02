@@ -21,7 +21,7 @@
               <input type="number" id="weight" class="form-control" [(ngModel)]="shipping.weight" (change)="initialPoint()">
               <label for="quantities">Quantities: </label>
               <input type="number" id="quantities" class="form-control" [(ngModel)]="shipping.quantities" (change)="initialPoint()">
-              <h6>Total weight: <strong>{{ shipping.totalWeight }}</strong></h6>
+              <h6>Total weight: <strong>{{ shipping.totalWeight }} Kg.</strong></h6>
             </div>
           </div>
           <div class="col-6 mb-4">
@@ -60,22 +60,22 @@
           <div class="col-6 mb-4">
             <h5>Exchange Rates</h5>
             <hr>
-            <label for="usd">1 YUAN = {{ yuanUsd }} $ USD</label>
+            <label for="usd">1 YUAN = {{ shipping.yuanUsd }} $ USD</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">1 YUAN = </span>
               </div>
-              <input type="number" class="form-control" id="usd" aria-describedby="usd" value="{{ yuanUsd }}">
+              <input type="number" class="form-control" id="usd" aria-describedby="usd" [(ngModel)]="shipping.yuanUsd" >
               <div class="input-group-append">
                 <span class="input-group-text">$ USD</span>
               </div>
             </div>
-            <label for="yuan">1 USD = {{ usdYuan }} Yuan</label>
+            <label for="yuan">1 USD = {{ shipping.usdYuan }} Yuan</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon2">1 USD = </span>
               </div>
-              <input type="text" class="form-control" id="yuan" aria-describedby="yuan" value="{{ usdYuan }}">
+              <input type="text" class="form-control" id="yuan" aria-describedby="yuan" [(ngModel)]="shipping.usdYuan">
               <div class="input-group-append">
                 <span class="input-group-text">Y YUAN</span>
               </div>

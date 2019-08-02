@@ -7,8 +7,6 @@ import { Shipping } from './models/shipping';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public usdYuan = 6.9;
-  public yuanUsd = 0.14;
 
   // Shipping class
   shipping: Shipping = new Shipping();
@@ -35,12 +33,12 @@ export class AppComponent {
 
   // Convert yuan to usd
   convertYuanToUsd(value) {
-    return value / this.usdYuan;
+    return value / this.shipping.usdYuan;
   }
 
   // Convert USD to yuan
   convertUsdToYuan(value) {
-    return  value / this.yuanUsd;
+    return  value / this.shipping.yuanUsd;
   }
 
   // Calculate total amount YUAN
