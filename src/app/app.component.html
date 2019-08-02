@@ -16,24 +16,25 @@
             <hr>
             <div class="form-group">
               <label for="price">Yuan Price: </label>
-              <input type="number" id="price" class="form-control" value="{{ price }}">
-              <label for="weight">Weight: </label>
-              <input type="number" id="weight" class="form-control" value="{{ weight }}">
+              <input type="number" id="price" class="form-control" [(ngModel)]="shipping.price" (change)="initialPoint()">
+              <label for="weight">Weight (kg): </label>
+              <input type="number" id="weight" class="form-control" [(ngModel)]="shipping.weight" (change)="initialPoint()">
               <label for="quantities">Quantities: </label>
-              <input type="number" id="quantities" class="form-control" value="{{ quantities }}">
-              <h6>Volumetric weight: <strong>{{ volumetricWeight }}</strong></h6>
+              <input type="number" id="quantities" class="form-control" [(ngModel)]="shipping.quantities" (change)="initialPoint()">
+              <h6>Total weight: <strong>{{ shipping.totalWeight }}</strong></h6>
             </div>
           </div>
           <div class="col-6 mb-4">
             <h5>Shipping Information</h5>
             <hr>
             <div class="form-group">
-              <label for="width">Width: </label>
-              <input type="number" id="width" class="form-control" value="{{ width}}">
-              <label for="height">Height: </label>
-              <input type="number" id="height" class="form-control" value="{{ height }}">
-              <label for="large">Large: </label>
-              <input type="number" id="large" class="form-control" value="{{ large }}">
+              <label for="width">Width (mts): </label>
+              <input type="number" id="width" class="form-control" [(ngModel)]="shipping.width" (change)="initialPoint()">
+              <label for="height">Height (mts): </label>
+              <input type="number" id="height" class="form-control" [(ngModel)]="shipping.height" (change)="initialPoint()">
+              <label for="large">Large (mts): </label>
+              <input type="number" id="large" class="form-control" [(ngModel)]="shipping.large" (change)="initialPoint()">
+              <h6>Volumetric weight: <strong>{{ shipping.volumetricWeight }} kg</strong></h6>
             </div>
           </div>
         </div>
@@ -43,7 +44,7 @@
             <hr>
             <div class="form-group">
               <label for="ctu_price">Price Yuan/Kg</label>
-              <input type="number" id="ctu_price" class="form-control" value="{{ ctuPrice }}">
+              <input type="number" id="ctu_price" class="form-control" [(ngModel)]="shipping.ctuPrice">
             </div>
           </div>
           <div class="col-6 mb-4">
@@ -51,7 +52,7 @@
             <hr>
             <div class="form-group">
               <label for="utv_price">Price USD/Kg</label>
-              <input type="number" id="utv_price" class="form-control" value="{{ utvPrice }}">
+              <input type="number" id="utv_price" class="form-control" [(ngModel)]="shipping.utvPrice">
             </div>
           </div>
         </div>
@@ -90,21 +91,21 @@
               </tr>
               <tr>
                 <td>Purchase</td>
-                <td>Yuan {{ purchaseYuan }}
+                <td>Yuan {{ shipping.purchaseYuan }}
                   <br>
-                USD {{ purchaseUsd }}</td>
+                USD {{ shipping.purchaseUsd }}</td>
               </tr>
               <tr>
-                <td>United States</td>
-                <td>Yuan {{ usaYuan }}
+                <td>China -> USA</td>
+                <td>Yuan {{ shipping.usaYuan }}
                   <br>
-                  USD {{ usaUsd }}</td>
+                  USD {{ shipping.usaUsd }}</td>
               </tr>
               <tr>
-                <td>Venezuela</td>
-                <td>Yuan {{ vzlaYuan }}
+                <td>USA -> Venezuela</td>
+                <td>Yuan {{ shipping.vzlaYuan }}
                   <br>
-                  USD {{ vzlaUsd }}</td>
+                  USD {{ shipping.vzlaUsd }}</td>
               </tr>
             </table>
           </div>
@@ -123,15 +124,15 @@
               <tbody>
               <tr>
                 <td>USD $</td>
-                <td>{{ usdGrandTotal }}</td>
+                <td>{{ shipping.usdGrandTotal }}</td>
               </tr>
               <tr>
                 <td>Yuan Y</td>
-                <td>{{ yuanGrandTotal }}</td>
+                <td>{{ shipping.yuanGrandTotal }}</td>
               </tr>
               <tr>
                 <td>Bolivares Bs</td>
-                <td>{{ bsGrandTotal }}</td>
+                <td>{{ shipping.bsGrandTotal }}</td>
               </tr>
               </tbody>
             </table>

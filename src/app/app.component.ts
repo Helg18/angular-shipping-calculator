@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Shipping } from './models/shipping';
 
 @Component({
   selector: 'app-root',
@@ -9,32 +10,16 @@ export class AppComponent {
   public usdYuan = 6.9;
   public yuanUsd = 0.14;
 
-  // Package Information
-  public price = 0;
-  public weight = 0;
-  public quantities = 0;
+  // Shipping class
+  shipping: Shipping = new Shipping();
 
-  // Measurements Information
-  public width = 0;
-  public large = 0;
-  public height = 0;
-  public volumetricWeight = 0;
+  initialPoint() {
+    this.setVolumetricHeight();
+  }
 
-  // China to USA price
-  public ctuPrice = 0;
-
-  // USA to Venezuela price
-  public utvPrice = 0;
-
-  // Totals
-  private purchaseYuan = 0;
-  private purchaseUsd = 0;
-  private usaYuan = 0;
-  private usaUsd = 0;
-  private vzlaYuan = 0;
-  private vzlaUsd = 0;
-  private usdGrandTotal = 0;
-  private yuanGrandTotal = 0;
-  private bsGrandTotal = 0;
+  // calcular peso volumetrico
+  setVolumetricHeight() {
+    this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 400;
+  }
 
 }
