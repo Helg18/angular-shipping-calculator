@@ -16,6 +16,7 @@ export class AppComponent {
   initialPoint() {
     this.setTotalHeight();
     this.setVolumetricWeight();
+    this.setPurchase();
   }
 
   // Calulate total Weight
@@ -26,6 +27,17 @@ export class AppComponent {
   // Calculate Volumetric Weight
   setVolumetricWeight() {
     this.shipping.volumetricWeight = (this.shipping.height * this.shipping.width * this.shipping.large) * 400;
+  }
+
+  // Convert yuan to usd
+  convertYuanToUsd(value) {
+    return value / this.usdYuan;
+  }
+
+  // Calculate total amount YUAN
+  setPurchase() {
+    this.shipping.purchaseYuan = this.shipping.price * this.shipping.quantities;
+    this.shipping.purchaseUsd = this.convertYuanToUsd(this.shipping.purchaseYuan);
   }
 
 }
