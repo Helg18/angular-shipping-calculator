@@ -1,34 +1,38 @@
 export class Shipping {
-  usdYuan = 0;
-  yuanUsd = 0;
+  // 1 USD = xx YUAN
+  usdYuan = 6.9;
+
+  // 1 YUAN = xx USD
+  yuanUsd = 0.14;
+
   // Package Information
-  price = 0;
-  weight = 0;
-  quantities = 0;
+  price: number;
+  weight: number;
+  quantities = 1;
 
   // Measurements Information
-  width = 0;
-  large = 0;
-  height = 0;
-  volumetricWeight = 0;
+  width: number;
+  large: number;
+  height: number;
+  volumetricWeight: number;
 
   // China to USA price
-  ctuPrice = 0;
+  ctuPrice: number;
 
   // USA to Venezuela price
-  utvPrice = 0;
+  utvPrice: number;
 
   // Totals
-  purchaseYuan = 0;
-  purchaseUsd = 0;
-  usaYuan = 0;
-  usaUsd = 0;
-  vzlaYuan = 0;
-  vzlaUsd = 0;
-  usdGrandTotal = 0;
-  yuanGrandTotal = 0;
-  totalWeight = 0;
-  totalVolumetricWeight = 0;
-  unitCostUsd = 0;
-  unitCostYuan = 0;
+  purchaseYuan: number;
+  purchaseUsd: number;
+  usaYuan: number;
+  usaUsd: number;
+  vzlaYuan: number;
+  vzlaUsd: number;
+  usdGrandTotal: number;
+  yuanGrandTotal: number;
+  totalWeight: number;
+  totalVolumetricWeight: number;
+  unitCostUsd: number;
+  unitCostYuan: number;
 }
