@@ -37,7 +37,7 @@ export class AppComponent {
   setCubicMeter() {
     this.shipping.cubicMeter = (this.shipping.height * this.shipping.width * this.shipping.large);
     const t = this.shipping.cubicMeter * this.shipping.units;
-    this.shipping.totalcubicMeter = (Math.round(t * 100) / 100) * this.shipping.quantities;
+    this.shipping.totalcubicMeter = Math.ceil((t * this.shipping.quantities) * 100) / 100;
   }
 
   // Convert yuan to usd
