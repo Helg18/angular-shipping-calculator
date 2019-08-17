@@ -14,6 +14,7 @@ export class AppComponent {
   initialPoint() {
     this.setTotalHeight();
     this.setVolumetricWeight();
+    this.setCubicMeter();
     this.setPurchase();
     this.setTotalChinaToUsa();
     this.setTotalUsaToVzla();
@@ -21,7 +22,7 @@ export class AppComponent {
     this.setUnitCost();
   }
 
-  // Calulate total Weight
+  // Calculate total Weight
   setTotalHeight() {
     this.shipping.totalWeight = this.shipping.weight * this.shipping.quantities;
   }
@@ -30,6 +31,13 @@ export class AppComponent {
   setVolumetricWeight() {
     this.shipping.volumetricWeight = ((this.shipping.height * this.shipping.width * this.shipping.large) / 0.5) * 100;
     this.shipping.totalVolumetricWeight = Math.ceil(this.shipping.volumetricWeight * this.shipping.quantities);
+  }
+
+  // Calculate Cubic meter
+  setCubicMeter() {
+    this.shipping.cubicMeter = (this.shipping.height * this.shipping.width * this.shipping.large);
+    const t = this.shipping.cubicMeter * this.shipping.units;
+    this.shipping.totalcubicMeter = (Math.round(t * 100) / 100) * this.shipping.quantities;
   }
 
   // Convert yuan to usd
@@ -48,8 +56,8 @@ export class AppComponent {
     this.shipping.purchaseUsd = this.convertYuanToUsd(this.shipping.purchaseYuan);
   }
 
-  // Calculate bigest Weight
-  calculateBigestWeight() {
+  // Calculate biggest Weight
+  calculateBiggestWeight() {
     if (this.shipping.totalWeight > this.shipping.totalVolumetricWeight) {
       return  this.shipping.totalWeight;
     } else {
@@ -59,14 +67,14 @@ export class AppComponent {
 
   // Calculate China to USA
   setTotalChinaToUsa() {
-    const grandWeight = this.calculateBigestWeight();
+    const grandWeight = this.calculateBiggestWeight();
     this.shipping.usaYuan = grandWeight * this.shipping.ctuPrice;
     this.shipping.usaUsd = this.convertYuanToUsd(this.shipping.usaYuan);
   }
 
   // Calculate USA to Vzla
   setTotalUsaToVzla() {
-    const grandWeight = this.calculateBigestWeight();
+    const grandWeight = this.calculateBiggestWeight();
     this.shipping.vzlaUsd = this.shipping.utvPrice * grandWeight;
     this.shipping.vzlaYuan = this.convertUsdToYuan(this.shipping.vzlaUsd);
   }

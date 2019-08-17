@@ -1,6 +1,6 @@
 export class Shipping {
   // 1 USD = xx YUAN
-  usdYuan = 6.9;
+  usdYuan = 7.03;
 
   // 1 YUAN = xx USD
   yuanUsd = 0.14;
@@ -9,12 +9,14 @@ export class Shipping {
   price: number;
   weight: number;
   quantities = 1;
+  units = 1;
 
   // Measurements Information
   width: number;
   large: number;
   height: number;
   volumetricWeight: number;
+  cubicMeter: number;
 
   // China to USA price
   ctuPrice: number;
@@ -33,6 +35,7 @@ export class Shipping {
   yuanGrandTotal: number;
   totalWeight: number;
   totalVolumetricWeight: number;
+  totalcubicMeter: number;
   unitCostUsd: number;
   unitCostYuan: number;
 }
