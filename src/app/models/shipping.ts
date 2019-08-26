@@ -1,6 +1,6 @@
 export class Shipping {
   // 1 USD = xx YUAN
-  usdYuan = 7.03;
+  usdYuan = 7.15;
 
   // 1 YUAN = xx USD
   yuanUsd = 0.14;
